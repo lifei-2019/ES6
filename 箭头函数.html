@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #wrap{
+            width:100%
+        }
+        #the-button {
+            display:block;
+            margin:50% auto
+        }
+        .bigger{
+            padding:20px;
+            transition: padding 1s;
+        }
+    </style>
+    <div id="wrap">
+        <button id="the-button">click me</button>
+    </div>
+</body>
+</html>
+<script>
+    const companies = ["google","IBM","HUAWEI"]
+    const result = companies.map( item =>
+        "我想去"+item
+    )
+    console.log(result)
+    //this
+    const ages =[14,19,21]
+    const result2=ages.filter(item=>{
+        const nextYearAge = item+1
+        return nextYearAge>18
+    }
+    )
+    console.log(result2)
+
+
+    document.getElementById("the-button")
+    .addEventListener("click",function(){
+        // console.log(this)
+        //此时this仍然是window所以会报错,如果想使用需要改回原先的function函数
+        this.classList.add("bigger")
+        setTimeout(()=>{
+            // console.log(this)
+            //这里如果是原本的function的this是window，用箭头函数则不然
+            this.innerHTML= "重置"
+        },1000)
+    })
+</script>
