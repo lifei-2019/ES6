@@ -1,0 +1,35 @@
+<script>
+    const person ={
+        name: "lf",
+        age:"24",
+        city: 'nanjing',
+        social:{
+            bilibili:'Ts',
+            qq:'94'
+        }
+    }
+
+    const {name,age,city}=person
+    console.log(name,age,city)
+    // const {bilibili,qq}=person.social
+    // console.log(bilibili,qq)
+    
+    
+    //同时存在
+    const {name: personName = 'guest', //若没有则赋值默认值
+           social:{bilibili}
+          } = person
+    console.log(personName,bilibili)
+
+
+
+    const info = 'lf,23,nanjing'
+    const person1 = info.split(',')
+    const [name1,age1,city1]= person1
+    console.log(name1,age1,city1,person1)
+
+
+    let a=1
+    let b=2
+    [b,a]=[a,b]
+</script>

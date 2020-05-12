@@ -1,0 +1,16 @@
+<script>
+    const team = ['a','b','c','d','e']
+    const [captain,assistant,...players] = team
+
+    sortNumbers=(...nums)=>{
+        if(nums.length === 0){
+            return []
+        }else {
+            return nums.sort( (a,b)=>{
+                a-b         //倒序就是b-a
+            })
+        }
+    }
+
+    console.log(sortNumbers(1,2,10,7,3))
+</script>

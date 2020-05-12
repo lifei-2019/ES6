@@ -1,0 +1,41 @@
+<script>
+    //1.参数的默认参数值
+    orderCombo=(name="巨无霸套餐",drink="可口可乐") =>{
+        console.log(`您点了${name},饮料是：${drink}`)
+    }
+    //此时只修改了第二个参数值，没有修改第一个
+    orderCombo(undefined,"雪碧")
+
+    //2.字符串includes,startswith,endswith
+    const string="abcsafasf"
+    const substring="ab"
+    console.log(string.includes(substring))
+    console.log(string.startsWith('a',2))  //后面2是指从第三位开始
+    console.log(string.endsWith('a'))
+
+    //3.for...of
+    const numbers=new Set()
+    numbers.add(2)
+    numbers.add(7)
+    for(const number of numbers){
+        console.log(number)
+    }
+
+    const person =new Map()
+    person.set('name','lf')
+    person.set('age',18)
+    person.set('hobby',['movie','book'])
+    for (const [key,value] of person){
+        console.log(key,value)
+    }
+
+
+    const foods=[
+        "apple",
+        "banana",
+        "peach"
+    ]
+    for (const [key,value] of foods.entries()){
+        console.log(`第${key+1}个顾客点的是${value}`)
+    }
+</script>
