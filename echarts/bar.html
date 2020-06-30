@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bar</title>
+  <script src="./js/echarts.js" ></script>
+</head>
+<body>
+  <div id="main" style="width: 900px;height: 600px;"></div>
+</body>
+<script text="text/javascript">
+  //基于准备好的dom,初始化echarts实例
+  var myChart = echarts.init(document.getElementById('main'))
+  //置顶图标的配置项和数据
+  var option = {
+    //标题
+    title: {
+      text: 'Echarts 柱状图',
+      subtext: '学习echarts',
+      left: 150, //数字就是性素质，也可以是center left right这种
+      borderColor:'skyblue',
+      borderWidth:5,
+      textStyle: {
+        fontSize: 16
+      }
+    },
+    //工具箱
+    toolbox: {
+      show: true,
+      feature: {
+        dataView:{
+          show:true //数据视图
+        },
+        restore:{
+          show: true //还原
+        },
+        dataZoom: {
+          show: true //数据缩放
+        },
+        saveAsImage: {
+          show: true
+        },
+        magicType: {
+          type: ['line', 'bar']
+        }
+      }
+    },
+    tooltip: {
+      trigger: 'item'
+    },
+    //图例
+    legend: {
+      data: ['销量']
+    },
+    //x轴
+    xAxis: {
+      data: ["衬衫","羊毛衫","裤子","雪纺衫"]
+    },
+    //y轴
+    yAxis: {
+    },
+    //数据
+    series: [
+      {
+        name: '销量',
+        type: 'bar',
+        data: [5,20,36,10]
+      },
+      {
+        name: '价格',
+        type: 'line',
+        data: [10,30,56,20],
+        markPoint: {
+          //标记点
+          data: [
+            {type: 'max', name: '最大值'},
+            {type: 'min', name: '最小值', symbol: 'arrow'}
+          ]
+        },
+        //标记线
+        markLine: {
+          data: [
+            {type: 'average', name: '平均值'}
+          ]
+        }
+      }
+    ]
+  }
+  //使用刚指定的配置项和数据显示图表
+  myChart.setOption(option)
+</script>
+</html>
