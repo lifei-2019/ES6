@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+  /* 统一样式定义 */
+  :root{
+    --div-color:yellow;
+  }
+
+  #d1{
+    width: 100px;
+    height: 100px;
+    background-color: var(--div-color);
+  }
+
+  #d2{
+    width: 200px;
+    height: 200px;
+    background-color: var(--div-color);
+  }
+
+  #d3{
+    width: 300px;
+    height: 300px;
+    background-color: var(--div-color);
+  }
+</style>
+<body>
+  <div id="d1">hello</div>
+  <div id="d2">hello</div>
+  <div id="d3">hello</div>
+
+  <button>切换主题</button>
+
+  <script>
+    let btn = document.querySelector('button')
+    btn.onclick = () => {
+      // 读取根的样式
+      const rootStyles = getComputedStyle(document.documentElement)
+      const value = rootStyles.getPropertyValue('--div-color')
+      console.log(value)
+      if(value === 'red' ) {
+        document.documentElement.style.setProperty('--div-color', 'green')
+      }else {
+        document.documentElement.style.setProperty('--div-color', 'yellow')
+      }
+    }
+  </script>
+</body>
+</html>
